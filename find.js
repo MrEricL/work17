@@ -6,7 +6,7 @@ var boxWidth = box.offsetWidth;
 //randomize later
 var targetX = boxWidth / 2;
 var targetY = boxHeight / 2;
-2
+
 
 console.log( "box height: " + boxHeight );
 console.log( "box width: " + boxWidth );
@@ -42,5 +42,6 @@ var maxDist = function(){
 	var botright = distance(targetX,targetY,boxHeight,boxWidth);
 	return max(upleft,upright,botleft,botright);
 };
+
 
 box.addEventListener("mousemove", findIt);
