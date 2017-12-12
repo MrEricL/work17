@@ -6,7 +6,7 @@ var boxWidth = box.offsetWidth;
 //randomize later
 var targetX = boxWidth / 2;
 var targetY = boxHeight / 2;
-
+2
 
 console.log( "box height: " + boxHeight );
 console.log( "box width: " + boxWidth );
@@ -23,7 +23,7 @@ var findIt = function(e) {
   var xpos = e.clientX;
   var ypos = e.clientY;
   var dis = distance(targetX,targetY,xpos,ypos);
-  console.log(dis)
+  //console.log(xpos+","+ypos);
   if (dis==0){
   	box.style.backgroundColor="#FF0000";
   }
@@ -34,5 +34,13 @@ var findIt = function(e) {
 /*
 your OTHER FXNS
 */
+
+var maxDist = function(){
+	var upleft = distance(targetX,targetY,0,0);
+	var upright = distance(targetX,targetY,0,boxWidth);
+	var botleft = distance(targetX,targetY,boxHeight,0);
+	var botright = distance(targetX,targetY,boxHeight,boxWidth);
+	return max(upleft,upright,botleft,botright);
+};
 
 box.addEventListener("mousemove", findIt);
