@@ -10,6 +10,8 @@ var boxWidth = box.offsetWidth;
 var targetX = Math.random()*boxWidth;
 var targetY = Math.random()*boxHeight;
 
+console.log(targetX+","+targetY);
+
 
 
 console.log( "box height: " + boxHeight );
@@ -32,18 +34,24 @@ var maxDist = function(){
 	return Math.max(upleft,upright,botleft,botright);
 };
 var maxD = maxDist();
-console.log(maxD);
+//console.log(maxD);
 
 
 
 
 var findIt = function(e) {
-  /* YOUR IMPLEMENTATION */
-  var xpos = e.clientX;
-  var ypos = e.clientY;
-  var dis = distance(targetX,targetY,xpos,ypos);
-  //console.log(xpos+","+ypos);
-  box.style.backgroundColor="rgb("+Math.floor((255/maxD)*(maxD-dis))+",0,0"+")";
+	var xpos = e.clientX;
+	var ypos = e.clientY;
+	var dis = distance(targetX,targetY,xpos,ypos);
+
+	var colorNumb = Math.floor((255/maxD)*(maxD-dis))
+
+	//Red
+	//box.style.backgroundColor="rgb("+colorNumb+",0,0"+")";
+	//Greyscale
+	//box.style.backgroundColor="rgb("+colorNumb+","+colorNumb+","+colorNumb+")";
+	//Purple
+	box.style.backgroundColor="rgb("+colorNumb+",0,"+colorNumb+")";
   
 
 };
